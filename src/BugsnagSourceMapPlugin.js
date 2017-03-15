@@ -52,14 +52,19 @@ class BugsnagSourceMapPlugin extends CommonBugsnagPlugin {
 
   uploadSourceMaps(options, sourceMaps) {
     return Promise.all(
-      sourceMaps.map(({ url, file, sourceMap }) => (
-        upload({
+      sourceMaps.map(({ url, file, sourceMap }) => {
+        let sources = {}
+
+        sources[url] = file
+
+        return upload({
           ...options,
+          sources,
           minifiedUrl: url,
           minifiedFile: file,
           sourceMap: sourceMap,
         })
-      ))
+      })
     );
   }
 

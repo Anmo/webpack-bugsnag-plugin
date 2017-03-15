@@ -1,4 +1,2 @@
-module.exports = {
-  BugsnagDeployPlugin: require('./BugsnagDeployPlugin').default,
-  BugsnagSourceMapPlugin: require('./BugsnagSourceMapPlugin').default,
-};
+export * as BugsnagDeployPlugin from './BugsnagDeployPlugin'
+export * as BugsnagSourceMapPlugin from './BugsnagSourceMapPlugin'
